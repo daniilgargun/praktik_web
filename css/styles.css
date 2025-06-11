@@ -31,7 +31,7 @@ header {
     padding:20px 0;
 }
 form[name="search"] {
-    float: right;
+    float: none;
 }
 nav a {
     text-decoration: none;

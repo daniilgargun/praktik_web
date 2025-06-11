@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - Webprog</title>
+    <link rel="icon" type="image/x-icon" href="../img/logo.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/auth-pages.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+    <!-- Гаргун Даниил Степанович-->
+</head>
+<body class="auth-body">
+    <div class="auth-wrapper">
+        <!-- Фоновые элементы -->
+        <div class="bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        
+        <!-- Навигация -->
+        <nav class="auth-nav">
+            <a href="../index.html" class="back-link">
+                <span class="back-arrow">←</span>
+                Вернуться на главную
+            </a>
+            <a href="../index.html" class="logo-link">
+                <img src="../img/logo.png" alt="Webprog" class="nav-logo">
+            </a>
+        </nav>
+        
+        <!-- Основной контент -->
+        <div class="auth-container">
+            <div class="auth-card login-card">
+                <div class="card-header">
+                    <div class="header-icon">👤</div>
+                    <h1>Добро пожаловать!</h1>
+                    <p>Войдите в свой аккаунт</p>
+                </div>
+                
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="input-highlight"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" name="password" required>
+                        <span class="input-highlight"></span>
+                        <button type="button" class="password-toggle" onclick="togglePassword()">👁️</button>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="remember">
+                            <span class="checkmark"></span>
+                            Запомнить меня
+                        </label>
+                        <a href="#" class="forgot-link">Забыли пароль?</a>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Войти</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                    
+                    <div class="form-divider">
+                        <span>или</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn google-btn">
+                            Google
+                        </button>
+                        <button type="button" class="social-btn yandex-btn">
+                            Яндекс
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="card-footer">
+                    <p>Нет аккаунта? <a href="register.html" class="switch-link">Зарегистрироваться</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Уведомления -->
+        <div id="notification" class="notification"></div>
+    </div>
+    
+    <script src="../js/auth-handler.js"></script>
+    <script>
+        // Инициализация страницы входа
+        document.addEventListener('DOMContentLoaded', function() {
+            initLoginPage();
+        });
+    </script>
+</body>
+</html> 

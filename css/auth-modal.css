@@ -1,0 +1,687 @@
+/* Стили для кнопки входа в header */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    float: right;
+}
+
+.auth-btn {
+    background: linear-gradient(135deg, #29c5e6 0%, #1b8ea6 100%);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(41, 197, 230, 0.3);
+    position: relative;
+    overflow: hidden;
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(41, 197, 230, 0.4);
+    background: linear-gradient(135deg, #1b8ea6 0%, #29c5e6 100%);
+}
+
+.auth-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.auth-btn:hover:before {
+    left: 100%;
+}
+
+/* Стили для авторизованного состояния */
+.auth-btn.logged-in {
+    background: linear-gradient(135deg, #2ed573 0%, #1e90ff 100%);
+    padding: 8px 15px;
+    min-width: 120px;
+    box-shadow: 0 2px 10px rgba(46, 213, 115, 0.3);
+}
+
+.auth-btn.logged-in:hover {
+    background: linear-gradient(135deg, #ff4757 0%, #ff3838 100%);
+    box-shadow: 0 4px 20px rgba(255, 71, 87, 0.4);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.user-icon {
+    font-size: 16px;
+}
+
+.user-name {
+    font-size: 12px;
+    font-weight: 400;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.logout-text {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-left: 5px;
+}
+
+.auth-btn.logged-in:hover .logout-text {
+    opacity: 1;
+}
+
+/* Модальное окно подтверждения выхода */
+.logout-confirm-modal {
+    z-index: 1001;
+}
+
+.logout-confirm-content {
+    max-width: 400px;
+    width: 90%;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    animation: slideInScale 0.4s ease;
+}
+
+@keyframes slideInScale {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.logout-confirm-header {
+    text-align: center;
+    padding: 40px 30px 30px;
+    position: relative;
+}
+
+.logout-confirm-header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff4757, #ff3838, #ff4757);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+.logout-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: doorSwing 2s ease-in-out infinite;
+}
+
+@keyframes doorSwing {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+.logout-confirm-header h2 {
+    color: #7e7e7e;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 0 15px 0;
+}
+
+.logout-confirm-header p {
+    color: #8f8f8f;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.logout-confirm-buttons {
+    display: flex;
+    gap: 15px;
+    padding: 0 30px 40px;
+}
+
+.logout-btn {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    min-height: 50px;
+}
+
+.logout-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.logout-btn:hover:before {
+    left: 100%;
+}
+
+.confirm-logout {
+    background: linear-gradient(135deg, #ff4757 0%, #ff3838 100%);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+}
+
+.confirm-logout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 71, 87, 0.4);
+    background: linear-gradient(135deg, #ff3838 0%, #ff4757 100%);
+}
+
+.cancel-logout {
+    background: linear-gradient(135deg, #7e7e7e 0%, #5a5a5a 100%);
+    color: white;
+    box-shadow: 0 5px 15px rgba(126, 126, 126, 0.3);
+}
+
+.cancel-logout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(126, 126, 126, 0.4);
+    background: linear-gradient(135deg, #5a5a5a 0%, #7e7e7e 100%);
+}
+
+.logout-btn .btn-icon {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.logout-btn:active {
+    transform: translateY(0);
+}
+
+/* Уведомление о выходе */
+.logout-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #2ed573, #1e90ff);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transform: translateX(400px);
+    transition: all 0.3s ease;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+}
+
+.logout-notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-icon {
+    font-size: 18px;
+}
+
+.notification-text {
+    font-weight: 300;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes slideOut {
+    from { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to { 
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.4s ease;
+    overflow: hidden;
+}
+
+.modal-content.closing {
+    animation: slideOut 0.3s ease;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #7e7e7e;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close:hover {
+    color: #29c5e6;
+    background: rgba(41, 197, 230, 0.1);
+    transform: rotate(90deg);
+}
+
+/* Контейнер авторизации */
+.auth-container {
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.auth-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #29c5e6, #1b8ea6, #29c5e6);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.auth-title {
+    color: #7e7e7e;
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.auth-subtitle {
+    color: #8f8f8f;
+    font-size: 14px;
+    margin: 0 0 30px 0;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Кнопки действий */
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.auth-action-btn {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #e7e7e7;
+    border-radius: 15px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-30px);
+    min-height: 70px;
+}
+
+.auth-action-btn.login-btn {
+    animation: slideInLeft 0.6s ease 0.3s forwards;
+}
+
+.auth-action-btn.register-btn {
+    animation: slideInLeft 0.6s ease 0.4s forwards;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.auth-action-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(41, 197, 230, 0.2);
+    border-color: #29c5e6;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, rgba(41, 197, 230, 0.05) 0%, rgba(27, 142, 166, 0.05) 100%);
+}
+
+.register-btn:hover {
+    background: linear-gradient(135deg, rgba(126, 126, 126, 0.05) 0%, rgba(41, 197, 230, 0.05) 100%);
+}
+
+.auth-action-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(41, 197, 230, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.auth-action-btn:hover:before {
+    left: 100%;
+}
+
+.btn-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(41, 197, 230, 0.1);
+    transition: all 0.3s ease;
+}
+
+.auth-action-btn:hover .btn-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(41, 197, 230, 0.2);
+}
+
+.btn-text {
+    text-align: left;
+    flex: 1;
+}
+
+.btn-title {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #7e7e7e;
+    margin-bottom: 2px;
+}
+
+.btn-desc {
+    display: block;
+    font-size: 12px;
+    color: #8f8f8f;
+}
+
+/* Футер модального окна */
+.auth-footer {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.5s forwards;
+}
+
+.auth-footer p {
+    color: #b2b2b2;
+    font-size: 11px;
+    margin: 0;
+    position: relative;
+}
+
+.auth-footer p:before {
+    content: '🔒';
+    margin-right: 5px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-right {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-end;
+    }
+    
+    .auth-btn {
+        font-size: 12px;
+        padding: 6px 15px;
+        min-width: 70px;
+    }
+    
+    .auth-btn.logged-in {
+        min-width: 100px;
+        padding: 6px 12px;
+    }
+    
+    .user-name {
+        font-size: 11px;
+        max-width: 50px;
+    }
+    
+    .logout-text {
+        font-size: 10px;
+    }
+    
+    .logout-notification {
+        right: 10px;
+        top: 10px;
+        padding: 12px 15px;
+        font-size: 12px;
+    }
+    
+    .logout-confirm-content {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .logout-confirm-header {
+        padding: 30px 20px 20px;
+    }
+    
+    .logout-confirm-buttons {
+        flex-direction: column;
+        padding: 0 20px 30px;
+    }
+    
+    .logout-btn {
+        width: 100%;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .auth-container {
+        padding: 30px 20px;
+    }
+    
+    .auth-action-btn {
+        padding: 15px;
+    }
+    
+    .btn-title {
+        font-size: 16px;
+    }
+}
+
+/* Дополнительные эффекты */
+.auth-action-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.modal-content:hover {
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* Эффект частиц (декоративный) */
+.auth-container:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(41, 197, 230, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 80% 80%, rgba(126, 126, 126, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 40% 60%, rgba(41, 197, 230, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px, 30px 30px, 70px 70px;
+    pointer-events: none;
+    opacity: 0.5;
+    animation: particleFloat 10s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Стили для эффекта загрузки */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    z-index: 100;
+    animation: fadeIn 0.3s ease;
+}
+
+.loading-spinner {
+    text-align: center;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e7e7e7;
+    border-top: 4px solid #29c5e6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-spinner p {
+    color: #7e7e7e;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    margin: 0;
+} 

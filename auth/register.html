@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - Webprog</title>
+    <link rel="icon" type="image/x-icon" href="../img/logo.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/auth-pages.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+    <!-- Гаргун Даниил Степанович-->
+</head>
+<body class="auth-body">
+    <div class="auth-wrapper">
+        <!-- Фоновые элементы -->
+        <div class="bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        
+        <!-- Навигация -->
+        <nav class="auth-nav">
+            <a href="../index.html" class="back-link">
+                <span class="back-arrow">←</span>
+                Вернуться на главную
+            </a>
+            <a href="../index.html" class="logo-link">
+                <img src="../img/logo.png" alt="Webprog" class="nav-logo">
+            </a>
+        </nav>
+        
+        <!-- Основной контент -->
+        <div class="auth-container">
+            <div class="auth-card register-card">
+                <div class="card-header">
+                    <div class="header-icon">✨</div>
+                    <h1>Создать аккаунт</h1>
+                    <p>Присоединяйтесь к нашему сообществу</p>
+                </div>
+                
+                <form class="auth-form" id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Имя</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <span class="input-highlight"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Фамилия</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <span class="input-highlight"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="input-highlight"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" name="password" required>
+                        <span class="input-highlight"></span>
+                        <button type="button" class="password-toggle" onclick="togglePassword('password')">👁️</button>
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill"></div>
+                            </div>
+                            <span class="strength-text">Слабый</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Подтвердите пароль</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <span class="input-highlight"></span>
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Телефон (опционально)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+375 (29) 123-45-67">
+                        <span class="input-highlight"></span>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="terms" required>
+                            <span class="checkmark"></span>
+                            Я согласен с <a href="#" class="terms-link">условиями использования</a>
+                        </label>
+                        
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="newsletter">
+                            <span class="checkmark"></span>
+                            Получать новости и обновления
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Создать аккаунт</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                    
+                    <div class="form-divider">
+                        <span>или</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn google-btn">
+                            Google
+                        </button>
+                        <button type="button" class="social-btn yandex-btn">
+                            Яндекс
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="card-footer">
+                    <p>Уже есть аккаунт? <a href="login.html" class="switch-link">Войти</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Уведомления -->
+        <div id="notification" class="notification"></div>
+    </div>
+    
+    <script src="../js/auth-handler.js"></script>
+    <script>
+        // Инициализация страницы регистрации
+        document.addEventListener('DOMContentLoaded', function() {
+            initRegisterPage();
+        });
+    </script>
+</body>
+</html> 
