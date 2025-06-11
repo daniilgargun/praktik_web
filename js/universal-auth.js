@@ -3,40 +3,64 @@ class UniversalAuth {
     constructor() {
         this.basePath = this.detectBasePath();
         this.authPath = this.detectAuthPath();
+        
+        // Отладочная информация 
+        console.log('UniversalAuth initialized:');
+        console.log('- Protocol:', window.location.protocol);
+        console.log('- Pathname:', window.location.pathname);
+        console.log('- Base path:', this.basePath);
+        console.log('- Auth path:', this.authPath);
+        
         this.init();
     }
 
     detectBasePath() {
-        const path = window.location.pathname;
+        // Проверяем, открыт ли файл локально (file://) или через сервер
+        const isLocalFile = window.location.protocol === 'file:';
         
-        // Определяем уровень вложенности
-        if (path === '/' || path.endsWith('index.html') && !path.includes('/')) {
-            return './'; // Корневая директория
-        } else if (path.includes('/') && !path.endsWith('/')) {
-            // Подсчитываем количество слешей для определения уровня вложенности
-            const segments = path.split('/').filter(segment => segment !== '');
-            const depth = segments.length - 1; // -1 потому что последний сегмент - это файл
+        if (isLocalFile) {
+            // Для локальных файлов определяем базовый путь по текущему файлу
+            const path = window.location.pathname;
+            const currentFile = path.split('/').pop() || 'index.html';
             
-            if (depth === 1) {
-                return '../'; // Один уровень вложенности (например, /about/index.html)
-            } else if (depth === 2) {
-                return '../../'; // Два уровня вложенности
+            if (currentFile === 'index.html' || path.endsWith('/')) {
+                return './'; // Корневая директория
             } else {
-                return '../'.repeat(depth); // Для более глубокой вложенности
+                return '../'; // Для файлов в подпапках
             }
         } else {
-            return '../'; // По умолчанию для папок
+            // Для серверных файлов используем существующую логику
+            const path = window.location.pathname;
+            const segments = path.split('/').filter(segment => segment !== '');
+            
+            if (segments.length <= 1) {
+                return './';
+            } else {
+                return '../'.repeat(segments.length - 1);
+            }
         }
     }
 
     detectAuthPath() {
-        // Всегда используем путь относительно корня сайта
+        // Проверяем, открыт ли файл локально (file://) или через сервер
+        const isLocalFile = window.location.protocol === 'file:';
         const path = window.location.pathname;
+        const currentFile = path.split('/').pop() || 'index.html';
         
-        if (path === '/' || (path.endsWith('index.html') && !path.includes('/'))) {
-            return 'auth/'; // Корневая директория
+        if (isLocalFile) {
+            // Для локальных файлов всегда используем относительный путь
+            if (currentFile === 'index.html' || path.endsWith('/')) {
+                return 'auth/'; // Корневая директория
+            } else {
+                return '../auth/'; // Для файлов в подпапках
+            }
         } else {
-            return this.basePath + 'auth/'; // Для всех остальных случаев
+            // Для серверных файлов используем существующую логику
+            if (path === '/' || (path.endsWith('index.html') && !path.includes('/'))) {
+                return 'auth/'; // Корневая директория
+            } else {
+                return this.basePath + 'auth/'; // Для всех остальных случаев
+            }
         }
     }
 
