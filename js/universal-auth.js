@@ -45,14 +45,18 @@ class UniversalAuth {
         // Проверяем, открыт ли файл локально (file://) или через сервер
         const isLocalFile = window.location.protocol === 'file:';
         const path = window.location.pathname;
-        const currentFile = path.split('/').pop() || 'index.html';
         
         if (isLocalFile) {
-            // Для локальных файлов всегда используем относительный путь
-            if (currentFile === 'index.html' || path.endsWith('/')) {
-                return 'auth/'; // Корневая директория
+            // Для локальных файлов определяем глубину вложенности
+            const pathParts = path.split('/').filter(part => part && part !== 'index.html');
+            const fileName = path.split('/').pop();
+            
+            // Если мы в корневой папке (practika_web)
+            if (pathParts.length <= 1 || fileName === 'index.html' && pathParts.length <= 2) {
+                return 'auth/';
             } else {
-                return '../auth/'; // Для файлов в подпапках
+                // Если мы в подпапке, всегда возвращаемся к корню
+                return '../auth/';
             }
         } else {
             // Для серверных файлов используем существующую логику
