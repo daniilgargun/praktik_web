@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/tiltedCard.css">
     <link rel="stylesheet" href="../css/auth-modal.css">
+    <link rel="stylesheet" href="../css/hamburger-menu.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
     <!-- Гаргун Даниил Степанович-->
 </head>
@@ -17,14 +18,62 @@
 <div id="wrapper">
     <header>
         <a href="../index.html"><img src="../img/logo.png" alt="logo"></a>
+        <div class="hamburger-menu-button" id="hamburgerBtn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
         <div class="header-right">
-            <form name="search" action="#" method="get">
-                <input type="text" name="q" placeholder="Поиск...">
-                <button>Найти</button>
-            </form>
+        <form name="search" action="#" method="get">
+            <input type="text" name="q" placeholder="Поиск...">
+            <button>Найти</button>
+        </form>
             <button id="loginBtn" class="auth-btn">Вход</button>
         </div>
     </header>
+    
+    <!-- Гамбургер меню -->
+    <div id="hamburgerMenu" class="hamburger-menu-container">
+        <div class="menu-grid">
+            <a href="../home/index.html" class="menu-item">
+                <div class="menu-icon">🏠</div>
+                <span class="menu-text">Главная</span>
+            </a>
+            <a href="../about/index.html" class="menu-item">
+                <div class="menu-icon">🌐</div>
+                <span class="menu-text">О нас</span>
+            </a>
+            <a href="../services/index.html" class="menu-item">
+                <div class="menu-icon">💻</div>
+                <span class="menu-text">Услуги</span>
+            </a>
+            <a href="../partners/index.html" class="menu-item">
+                <div class="menu-icon">🤝</div>
+                <span class="menu-text">Партнеры</span>
+            </a>
+            <a href="../customers/index.html" class="menu-item">
+                <div class="menu-icon">👥</div>
+                <span class="menu-text">Клиенты</span>
+            </a>
+            <a href="../projects/index.html" class="menu-item">
+                <div class="menu-icon">📁</div>
+                <span class="menu-text">Наши проекты</span>
+            </a>
+            <a href="../careers/index.html" class="menu-item">
+                <div class="menu-icon">💼</div>
+                <span class="menu-text">Карьера</span>
+            </a>
+            <a href="../contacts/index.html" class="menu-item">
+                <div class="menu-icon">📱</div>
+                <span class="menu-text">Контакты</span>
+            </a>
+            <a href="https://ru.wikipedia.org/wiki/Выход" class="menu-item" id="menuExitBtn">
+                <div class="menu-icon">🚪</div>
+                <span class="menu-text">Выход</span>
+            </a>
+        </div>
+    </div>
+
     <nav> 
         <ul class="top-menu">
             <li><a href="../home/index.html">Главная</a></li>
@@ -134,5 +183,6 @@
     </footer>
     <script src="../js/tiltedCard.js"></script>
     <script src="../js/universal-auth.js"></script>
+    <script src="../js/hamburger-menu.js"></script>
 </body>
 </html> 
