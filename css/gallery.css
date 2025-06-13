@@ -1,0 +1,244 @@
+/* Стили для контейнера галереи */
+.gallery-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(231, 231, 231, 0.5);
+    padding: 25px;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    max-width: 800px; /* Ограничиваем ширину для лучшего вида */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Основное изображение галереи */
+.gallery-main-image-wrapper {
+    width: 100%;
+    max-width: 750px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-main-image-wrapper:hover {
+    transform: translateY(-8px) scale(1.01); /* Более выраженный эффект при наведении */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-main-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    object-fit: cover;
+    /* Анимации для изображения будут добавляться через JS */
+}
+
+/* Кнопки навигации */
+.gallery-nav-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 0px; /* Увеличим отступы, чтобы кнопки были ближе к краям */
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none; /* Изначально некликабельные */
+    z-index: 10;
+}
+
+.gallery-main-image-wrapper:hover .gallery-nav-buttons {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0); /* Плавное появление стрелок */
+    pointer-events: auto; /* Делаем кликабельными при наведении */
+}
+
+.gallery-nav-btn {
+    background: linear-gradient(135deg, rgba(41, 197, 230, 0.9) 0%, rgba(27, 142, 166, 0.9) 100%); /* Градиентный фон */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Тонкая белая обводка */
+    width: 50px; /* Фиксированная ширина */
+    height: 50px; /* Фиксированная высота */
+    border-radius: 50%; /* Круглые кнопки */
+    font-size: 24px; /* Увеличим размер стрелки */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Объемная тень */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-nav-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.gallery-nav-btn:hover:before {
+    left: 100%;
+}
+
+.gallery-nav-btn:hover {
+    background: linear-gradient(135deg, rgba(27, 142, 166, 0.9) 0%, rgba(41, 197, 230, 0.9) 100%); /* Смена градиента при наведении */
+    transform: scale(1.15) rotate(5deg); /* Сильнее масштабирование и небольшой поворот */
+    box-shadow: 0 8px 25px rgba(41, 197, 230, 0.5);
+}
+
+.gallery-nav-btn:active {
+    transform: scale(1.05); /* Легкое уменьшение при нажатии */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Миниатюры галереи */
+.gallery-thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px; /* Увеличим отступ */
+    margin-top: 20px; /* Увеличим отступ */
+}
+
+.gallery-thumbnails img {
+    width: 90px; /* Увеличим размер миниатюр */
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px; /* Чуть больше скругление */
+    cursor: pointer;
+    border: 4px solid transparent; /* Увеличим обводку */
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+
+.gallery-thumbnails img:hover {
+    transform: translateY(-5px) scale(1.08); /* Более выраженный эффект */
+    box-shadow: 0 8px 20px rgba(41, 197, 230, 0.3);
+}
+
+.gallery-thumbnails img.active {
+    border-color: #29c5e6; /* Активная миниатюра */
+    box-shadow: 0 0 20px rgba(41, 197, 230, 0.7); /* Более яркая тень */
+    transform: scale(1.05); /* Чуть больше масштаб */
+}
+
+/* Информация о проекте */
+.gallery-info {
+    text-align: center;
+    margin-top: 25px; /* Увеличим отступ */
+    width: 100%;
+    position: relative;
+    overflow: hidden; /* Для анимации текста */
+}
+
+.gallery-info h3 {
+    color: #7e7e7e;
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px; /* Увеличим размер */
+    font-weight: 400;
+    margin: 0 0 10px 0;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards; /* Анимация появления */
+    animation-delay: 0.1s;
+}
+
+.gallery-info p {
+    color: #8f8f8f;
+    font-size: 15px; /* Увеличим размер */
+    line-height: 1.7;
+    margin: 0;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards; /* Анимация появления */
+    animation-delay: 0.2s;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .gallery-container {
+        padding: 15px;
+        margin: 20px 0;
+    }
+
+    .gallery-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .gallery-thumbnails img {
+        width: 60px;
+        height: 45px;
+    }
+
+    .gallery-info h3 {
+        font-size: 20px;
+    }
+
+    .gallery-info p {
+        font-size: 13px;
+    }
+}
+
+@keyframes imageSlideInRight {
+    from {
+        transform: translateX(100%) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes imageSlideInLeft {
+    from {
+        transform: translateX(-100%) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Анимация появления текста */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Классы для JS-анимаций */
+.image-animate-right {
+    animation: imageSlideInRight 0.6s ease-out forwards;
+}
+
+.image-animate-left {
+    animation: imageSlideInLeft 0.6s ease-out forwards;
+}
+
+.info-animate {
+    /* Этот класс будет просто сбрасывать анимацию, чтобы она могла быть повторена */
+    animation: none;
+} 

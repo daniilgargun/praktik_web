@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/tiltedCard.css">
     <link rel="stylesheet" href="../css/auth-modal.css">
     <link rel="stylesheet" href="../css/hamburger-menu.css">
+    <link rel="stylesheet" href="../css/gallery.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
     <!-- Гаргун Даниил Степанович-->
 </head>
@@ -97,14 +98,40 @@
         </nav>
 </aside>
     <section>
-        <h2>Наши проекты</h2>
-        <p>Эта страница находится в разработке.</p>
+        <h2>Наши проекты: Воплощаем идеи в жизнь</h2>
+        <p>В Webprog мы гордимся каждым проектом, который мы создаем. Наше портфолио — это свидетельство нашей страсти к инновациям, вниманию к деталям и стремлению превзойти ожидания клиентов. Мы верим, что каждый проект — это уникальная возможность не только решить бизнес-задачи, но и создать что-то по-настоящему значимое и вдохновляющее.</p>
+        <p>От небольших стартапов до крупных корпораций, мы подходим к каждому клиенту индивидуально, предлагая решения, которые идеально соответствуют их целям и бюджету. Наши проекты охватывают широкий спектр отраслей, включая электронную коммерцию, корпоративные порталы, мобильные приложения, интерактивные веб-сервисы и многое другое.</p>
+        <p>Мы используем передовые технологии и современные методологии разработки, чтобы обеспечить высокое качество, безопасность и производительность наших продуктов. Наша команда состоит из талантливых дизайнеров, разработчиков и менеджеров проектов, которые работают в тесном сотрудничестве, чтобы каждая деталь была продумана и реализована на высшем уровне.</p>
+        <p>Приглашаем вас ознакомиться с избранными работами из нашего портфолио ниже. Каждый проект сопровождается кратким описанием, чтобы вы могли лучше понять наш подход и результаты, которые мы достигаем.</p>
         
+        <!-- Галерея проектов -->
+        <div class="gallery-container">
+            <div class="gallery-main-image-wrapper">
+                <img id="mainGalleryImage" src="../img/project_placeholder1.jpg" alt="Проект 1">
+                <div class="gallery-nav-buttons">
+                    <button id="prevImage" class="gallery-nav-btn prev">←</button>
+                    <button id="nextImage" class="gallery-nav-btn next">→</button>
+                </div>
+            </div>
+            <div class="gallery-thumbnails">
+                <img class="thumbnail active" src="../img/project_placeholder1.jpg" alt="Миниатюра 1">
+                <img class="thumbnail" src="../img/project_placeholder2.jpg" alt="Миниатюра 2">
+                <img class="thumbnail" src="../img/project_placeholder3.jpg" alt="Миниатюра 3">
+                <img class="thumbnail" src="../img/project_placeholder4.jpg" alt="Миниатюра 4">
+                <img class="thumbnail" src="../img/project_placeholder5.jpg" alt="Миниатюра 5">
+                
+            </div>
+            <div class="gallery-info">
+                <h3 id="galleryTitle">Название Проекта 1</h3>
+                <p id="galleryDescription">Краткое описание проекта 1. Это может быть веб-сайт, мобильное приложение или другой цифровой продукт, разработанный нашей командой.</p>
+            </div>
+        </div>
+
         <div class="navigation-arrows">
             <strong>Навигация:</strong>
             <div class="nav-group">
                 <a href="../index.html" class="nav-link prev home">Главная страница</a>
-</div>
+            </div>
         </div>
     </section>
 </div>
@@ -184,5 +211,6 @@
     <script src="../js/tiltedCard.js"></script>
     <script src="../js/universal-auth.js"></script>
     <script src="../js/hamburger-menu.js"></script>
+    <script src="../js/gallery.js"></script>
 </body>
 </html> 
